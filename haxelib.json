@@ -1,0 +1,12 @@
+{
+  "name": "haxeui-cortex",
+  "url" : "https://github.com/cortex-engine/haxeui-cortex/",
+  "license": "",
+  "tags": [],
+  "description": "",
+  "version": "0.0.1",
+  "releasenote": "",
+  "classPath": "src",
+  "contributors": ["Michael Bickel"],
+  "dependencies": {}
+}
