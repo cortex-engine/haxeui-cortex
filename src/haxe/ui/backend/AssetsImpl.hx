@@ -14,6 +14,13 @@ import nanovg.Nvg;
 
 class AssetsImpl extends AssetsBase {
     private static inline var FONT_TTF_DEFAULT_FIRST_CHAR = 32;
+
+    var imgData:Map<Int, ImageInfo> = new Map();
+
+    public function clear() {
+        for (k=>v in imgData)
+            Nvg.deleteImage(NanovgHelper.vg, k);
+    }
     
     private override function getImageFromHaxeResource(resourceId:String, callback:String->ImageInfo->Void) {
         trace(resourceId);

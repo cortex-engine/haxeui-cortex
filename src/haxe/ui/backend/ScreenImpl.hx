@@ -2,6 +2,7 @@ package haxe.ui.backend;
 
 import cortex.Cortex;
 import cortex.window.Window;
+import haxe.ui.backend.cortex.FontHelper;
 import haxe.ui.backend.cortex.KeyboardHelper;
 import haxe.ui.backend.cortex.MouseHelper;
 import haxe.ui.core.Component;
@@ -32,11 +33,14 @@ class ScreenImpl extends ScreenBase {
     }
 
     public function init() {
+        FontHelper.init();
         Cortex.mainWindow.onEvent.connect(_onWindowEvent);
         Cortex.onInput.connect(haxe.ui.backend.cortex.MouseHelper.onInput);
         Cortex.onInput.connect(haxe.ui.backend.cortex.KeyboardHelper.onInput);
     }
-    public function deinit() {
+    public function shutdown() {
+        FontHelper.shutdown();
+        Toolkit.assets.clear();
         Cortex.onInput.disconnect(haxe.ui.backend.cortex.KeyboardHelper.onInput);
         Cortex.onInput.disconnect(haxe.ui.backend.cortex.MouseHelper.onInput);
         Cortex.mainWindow.onEvent.disconnect(_onWindowEvent);
