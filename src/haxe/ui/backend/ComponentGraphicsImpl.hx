@@ -62,6 +62,9 @@ class ComponentGraphicsImpl extends ComponentGraphicsBase {
                     Nvg.lineTo(NanovgHelper.vg, x, y);
                     Nvg.stroke(NanovgHelper.vg);
 
+                case ClosePath:
+                    Nvg.closePath(NanovgHelper.vg);
+
                 case StrokeStyle(color, thickness, alpha):
                     if (thickness != null)
                         Nvg.strokeWidth(NanovgHelper.vg, thickness);
